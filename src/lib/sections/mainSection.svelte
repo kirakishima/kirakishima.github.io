@@ -4,16 +4,15 @@
   interface Logo {
     index: number;
     direction: "top" | "bottom" | "left" | "right";
-    delay: number;
   }
   const logos: Array<Logo> = [
-    { index: 0, direction: "bottom", delay: 100 },
-    { index: 1, direction: "bottom", delay: 100 },
-    { index: 2, direction: "left", delay: 200 },
-    { index: 3, direction: "right", delay: 200 },
-    { index: 4, direction: "left", delay: 400 },
-    { index: 5, direction: "right", delay: 600 },
-    { index: 6, direction: "right", delay: 600 },
+    { index: 0, direction: "bottom" },
+    { index: 1, direction: "bottom" },
+    { index: 2, direction: "left" },
+    { index: 3, direction: "right" },
+    { index: 4, direction: "left" },
+    { index: 5, direction: "right" },
+    { index: 6, direction: "right" },
   ];
   let isLogoVisible: boolean = false;
   onMount(() => {
@@ -23,14 +22,10 @@
   });
 </script>
 
-<section class="mx-auto bg-gray-400 dark:bg-gray-800 h-screen">
+<section class="mt-12 flex justify-center">
   {#if isLogoVisible}
     {#each logos as logo}
-      <MainLogo
-        logoIndex={logo.index}
-        delay={logo.delay}
-        direction={logo.direction}
-      />
+      <MainLogo logoIndex={logo.index} direction={logo.direction} />
     {/each}
   {/if}
 </section>

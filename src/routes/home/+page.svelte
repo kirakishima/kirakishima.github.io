@@ -6,4 +6,6 @@
 <title>Home</title>
 <ThemeSwitcher />
 
-<MainSection />
+<div class="container mx-auto">
+  <MainSection />
+</div>

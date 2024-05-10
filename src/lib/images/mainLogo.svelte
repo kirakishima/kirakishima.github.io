@@ -1,23 +1,25 @@
-<script>
+<script lang="ts">
   import { fly } from "svelte/transition";
   import { onMount } from "svelte";
 
+  export let logoIndex: number;
+  export let direction: string;
+
   let visible = false;
-  export let delay = 0;
-  export let logoIndex = 0;
-  export let direction = "top";
+
+  const baseOffset = 25;
   let offsetX = 0;
   let offsetY = 0;
 
   function shiftElement() {
     if (direction === "top") {
-      offsetY = 50;
+      offsetY = baseOffset;
     } else if (direction === "bottom") {
-      offsetY = -50;
+      offsetY = -baseOffset;
     } else if (direction === "left") {
-      offsetX = -50;
+      offsetX = -baseOffset;
     } else if (direction === "right") {
-      offsetX = 50;
+      offsetX = baseOffset;
     }
   }
 
@@ -29,15 +31,17 @@
 
 {#if visible}
   <div
+    class="fixed h-1/5 md:h-2/5 lg:h-4/5 w-full flex justify-center select-none"
     transition:fly={{
       x: offsetX,
       y: offsetY,
       duration: (logoIndex + 2) * 200,
-      delay: delay,
+      delay: (logoIndex + 1) * 200,
     }}
   >
     <img
-      class="absolute top-0"
+      draggable="false"
+      class="absolute inline-block w-4/5"
       src={`/images/logo/${logoIndex.toString()}.svg`}
       alt="logo"
     />
