@@ -31,7 +31,7 @@
 
 {#if visible}
   <div
-    class="fixed h-1/5 md:h-2/5 lg:h-4/5 w-full flex justify-center select-none"
+    class="absolute h-1/5 md:h-2/5 lg:h-4/5 w-full flex justify-center select-none"
     transition:fly={{
       x: offsetX,
       y: offsetY,
