@@ -1,2 +1,9 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+  import { base } from "$app/paths";
+</script>
+
+<title>Home</title>
+
+<nav>
+  <a href="{base}/home">Home</a>
+</nav>
