@@ -21,7 +21,9 @@
   });
 </script>
 
-<section class="h-screen flex justify-center">
+<section
+  class="mt-20 h-[40vh] sm:h-[60vh] md:h-[70vh] lg:h-[90vh] xl:h-screen flex justify-center"
+>
   {#if isLogoVisible}
     {#each logos as logo, i}
       <MainLogo logoIndex={i} direction={logo.direction} />

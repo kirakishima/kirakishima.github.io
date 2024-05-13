@@ -1,6 +1,7 @@
 <script lang="ts">
   import { fly } from "svelte/transition";
   import { onMount } from "svelte";
+  import { t } from "$lib/translate.svelte";
 
   export let logoIndex: number;
   export let direction: string;
@@ -31,7 +32,7 @@
 
 {#if visible}
   <div
-    class="absolute h-1/5 md:h-2/5 lg:h-4/5 w-full flex justify-center select-none"
+    class="absolute w-full flex justify-center select-none"
     transition:fly={{
       x: offsetX,
       y: offsetY,
@@ -41,8 +42,8 @@
   >
     <img
       draggable="false"
-      class="absolute inline-block w-4/5"
-      src={`/images/logo/${logoIndex.toString()}.svg`}
+      class="absolute inline-block w-full xl:w-4/5"
+      src={`${$t("main.logo.src")}/${logoIndex.toString()}.svg`}
       alt="logo"
     />
   </div>{/if}
